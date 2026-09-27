@@ -109,10 +109,6 @@
             }
         }
 
-<<<<<<< HEAD
-=======
-        /* TAMBAHAN CSS UNTUK ZOOM POSTER LIGHTBOX */
->>>>>>> 944c09d7b209bf472e493f89061f57002eb97cc2
         #lightbox-img {
             transition: transform 0.1s ease-out;
             cursor: grab;
@@ -396,20 +392,13 @@
     </button>
 
     <!-- LIGHTBOX MODAL DENGAN FITUR ZOOM -->
-<<<<<<< HEAD
     <div id="lightbox-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden" onclick="tutupLightbox()">
         <div class="relative max-w-4xl max-h-[90vh] w-full flex items-center justify-center">
             <button class="absolute top-4 right-4 bg-amber-600 hover:bg-amber-700 text-white font-bold w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-lg transition cursor-pointer" onclick="tutupLightbox()">&times;</button>
-=======
-    <div id="lightbox-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden" onclick="tutupLightbox(event)">
-        <div class="relative max-w-4xl max-h-[90vh] w-full flex items-center justify-center" onclick="event.stopPropagation()">
-            <button class="absolute top-4 right-4 z-10 bg-amber-600 hover:bg-amber-700 text-white font-bold w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-lg transition cursor-pointer" onclick="tutupLightbox()">&times;</button>
->>>>>>> 944c09d7b209bf472e493f89061f57002eb97cc2
             <img id="lightbox-img" src="" alt="Zoom Poster" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl border-2 border-amber-400/50">
         </div>
     </div>
 
-<<<<<<< HEAD
     <!-- MODAL DETAIL ALBUM KEGIATAN -->
     <div id="album-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
         <div class="card-transparan bg-white dark:bg-slate-900 max-w-3xl max-h-[85vh] w-full rounded-2xl shadow-2xl border border-amber-400/50 overflow-hidden flex flex-col">
@@ -423,8 +412,6 @@
         </div>
     </div>
 
-=======
->>>>>>> 944c09d7b209bf472e493f89061f57002eb97cc2
     <footer class="text-center py-6 text-slate-600 dark:text-slate-400 text-xs border-t border-amber-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/80 backdrop-blur-md mt-12 uppercase tracking-wider font-semibold">
         &copy; 2026 Al-Asyraf XVII. All rights reserved.
     </footer>
@@ -1157,16 +1144,10 @@
         muatPengumuman();
     </script>
 
-<<<<<<< HEAD
     <!-- SCRIPT GALERI (SISTEM ALBUM BERSIH & MODAL DETAIL) -->
     <script>
         const urlCSVGaleri = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8wpJnmpxyn-eNoxvzH_76pEfQCK08B2g3cxI66tlwfxlRxRAMem2XfwCES7mMYCVzwYZgvk7pHRNF/pub?gid=1915587298&single=true&output=csv";
         let semuaDataGaleri = [];
-=======
-    <!-- SCRIPT GALERI -->
-    <script>
-        const urlCSVGaleri = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8wpJnmpxyn-eNoxvzH_76pEfQCK08B2g3cxI66tlwfxlRxRAMem2XfwCES7mMYCVzwYZgvk7pHRNF/pub?gid=1915587298&single=true&output=csv";
->>>>>>> 944c09d7b209bf472e493f89061f57002eb97cc2
 
         async function muatGaleri() {
             try {
@@ -1176,23 +1157,13 @@
                 const kontainerGaleri = document.getElementById('page-galeri');
                 if (!kontainerGaleri) return;
 
-<<<<<<< HEAD
                 semuaDataGaleri = [];
-=======
-                let htmlContent = `
-                    <div class="card-transparan rounded-xl shadow-lg border border-amber-200/80 p-4 sm:p-6">
-                        <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-amber-900 dark:text-amber-400 text-center uppercase tracking-wide">Galeri Kegiatan Angkatan</h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                `;
-
->>>>>>> 944c09d7b209bf472e493f89061f57002eb97cc2
                 for (let i = 1; i < baris.length; i++) {
                     const row = baris[i].trim();
                     if (row) {
                         const kolom = parseCSVLine(row);
                         const timestamp = kolom[0] || "";
                         const judul = kolom[1] || "Dokumentasi Kegiatan";
-<<<<<<< HEAD
                         let rawFotoCell = kolom[2] || "";
                         const keterangan = kolom[3] || "";
 
@@ -1286,46 +1257,6 @@
             document.getElementById('album-modal').classList.add('hidden');
         }
 
-=======
-                        let rawFoto = kolom[2] || "";
-                        let fotoUrl = "";
-
-                        if (rawFoto.includes("id=")) {
-                            const fileId = rawFoto.split("id=")[1].split("&")[0];
-                            fotoUrl = `https://lh3.googleusercontent.com/d/${fileId}`;
-                        } else if (rawFoto.startsWith("http")) {
-                            fotoUrl = rawFoto;
-                        }
-                        const keterangan = kolom[3] || "";
-
-                        if (fotoUrl) {
-                            htmlContent += `
-                                <div class="bg-white/95 dark:bg-slate-800 rounded-lg shadow-sm overflow-hidden border border-amber-200 dark:border-slate-700 hover:shadow-md transition flex flex-col justify-between">
-                                    <div>
-                                        <img src="${fotoUrl}" alt="${judul}" class="w-full h-48 object-cover object-center cursor-pointer" onclick="bukaLightbox('${fotoUrl}')" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia'">
-                                        <div class="p-4">
-                                            <span class="text-xs text-amber-700 dark:text-amber-400 font-semibold uppercase">${timestamp}</span>
-                                            <h3 class="text-base font-bold text-slate-800 dark:text-slate-100 mt-1 uppercase">${judul}</h3>
-                                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed normal-case font-medium">${keterangan}</p>
-                                        </div>
-                                    </div>
-                                    <div class="p-4 pt-0">
-                                       <a href="${rawFoto}" target="_blank" class="block w-full bg-amber-600 hover:bg-amber-700 text-white text-center text-xs font-bold py-2 rounded-md transition duration-200 uppercase tracking-wider">
-                                            Buka & Download via Drive
-                                        </a>
-                                    </div>
-                                </div>
-                            `;
-                        }
-                    }
-                }
-                htmlContent += `</div></div>`;
-                kontainerGaleri.innerHTML = htmlContent;
-            } catch (error) {
-                console.error("Error loading gallery:", error);
-            }
-        }
->>>>>>> 944c09d7b209bf472e493f89061f57002eb97cc2
         muatGaleri();
     </script>
 </body>
