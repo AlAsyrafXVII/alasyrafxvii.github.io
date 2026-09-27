@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Angkatan Al-Asyraf XVII</title>
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="LOGO AL ASYRAF.png">
+
+    <!-- GOOGLE FONTS: PLUS JAKARTA SANS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- META TAG PREVIEW WHATSAPP -->
+    <meta property="og:title" content="Portal Informasi Angkatan Al-Asyraf XVII">
+    <meta property="og:description" content="Aliansi Angkatan Solid yang Responsif, Aktif, dan Berfaedah. Cek info, galeri, dan kas di sini!">
+    <meta property="og:image" content="LOGO AL ASYRAF.png">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('Kepanjangan Nama Angkatan.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: background 0.3s ease;
+        }
+
+        body.dark {
+            background: linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.92)), url('Kepanjangan Nama Angkatan.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .bg-gold-header-transparan {
+            background: linear-gradient(135deg, rgba(120, 53, 15, 0.92) 0%, rgba(69, 26, 3, 0.96) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 4px solid #b45309;
+        }
+
+        .font-logo-style {
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 0.05em;
+        }
+
+        .text-gold-custom {
+            color: #92400e;
+        }
+
+        .dark .text-gold-custom {
+            color: #fbbf24;
+        }
+
+        .card-gold-border {
+            border-left: 4px solid #d97706;
+            background: linear-gradient(to right, #fffbeb, #ffffff);
+        }
+
+        .dark .card-gold-border {
+            background: linear-gradient(to right, #1e293b, #0f172a);
+            border-left: 4px solid #f59e0b;
+        }
+
+        .card-transparan {
+            background: rgba(255, 255, 255, 0.70);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            transition: background 0.3s ease, border 0.3s ease;
+        }
+
+        body.dark .card-transparan {
+            background: rgba(15, 23, 42, 0.80);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #f1f5f9;
+        }
+
+        .halaman-menu {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #lightbox-img {
+            transition: transform 0.1s ease-out;
+            cursor: grab;
+            transform-origin: center center;
+        }
+        #lightbox-img:active {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body class="text-slate-800 dark:text-slate-100 min-h-screen flex flex-col justify-between relative">
+
+    <div id="welcome-toast" class="fixed top-5 right-5 z-50 bg-amber-900/95 text-amber-100 px-4 py-3 rounded-xl shadow-2xl border border-amber-400/50 backdrop-blur-md flex items-center gap-3 transition-all duration-500 transform translate-y-[-200%]" style="display: none;">
+        <span class="text-xl">✨</span>
+        <div>
+            <h4 class="font-bold text-xs uppercase tracking-wider">Al-Asyraf XVII</h4>
+            <p class="text-[11px] text-amber-200/90 normal-case">Selamat datang di portal resmi angkatan!</p>
+        </div>
+    </div>
+
+    <div>
+        <!-- STICKY HEADER -->
+        <header class="bg-gold-header-transparan text-white py-4 shadow-2xl sticky top-0 z-50">
+            <div class="absolute top-3 right-4">
+                <button onclick="toggleDarkMode()" id="btn-darkmode" class="bg-white/10 hover:bg-white/20 border border-amber-300/40 text-amber-200 px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 shadow-sm">
+                    🌙 <span class="hidden sm:inline">Mode</span>
+                </button>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-3">
+                
+                <div class="flex items-center justify-center md:justify-start flex-shrink-0">
+                    <img src="LOGO AL ASYRAF.png" alt="Logo Al-Asyraf" class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded-full bg-white/10 p-1.5 shadow-lg border border-amber-400/40" onerror="this.style.display='none'">
+                </div>
+
+                <div class="text-center flex-grow w-full">
+                    <h1 class="text-xs sm:text-base md:text-xl font-bold font-logo-style text-amber-100 uppercase leading-snug">PORTAL INFORMASI ANGKATAN AL ASYRAF XVII</h1>
+                    <p class="text-[8px] sm:text-[10px] md:text-xs text-amber-200/90 font-medium tracking-wider uppercase mt-0.5">Aliansi Angkatan Solid yang Responsif, Aktif, dan Berfaedah</p>
+                    
+                    <div class="mt-3 flex justify-center gap-2 sm:gap-3 flex-wrap">
+                        <button id="nav-beranda" onclick="tampilHalaman('beranda')" class="nav-btn bg-amber-600 border border-amber-300 px-4 sm:px-5 py-1.5 text-white rounded-lg font-bold text-xs tracking-wider shadow-sm transition duration-200 uppercase">Beranda</button>
+                        <button id="nav-galeri" onclick="tampilHalaman('galeri')" class="nav-btn bg-transparent hover:bg-white/10 border border-amber-300/60 px-4 sm:px-5 py-1.5 text-white rounded-lg font-bold text-xs tracking-wider shadow-sm transition duration-200 uppercase">Galeri</button>
+                        <button id="nav-kas" onclick="tampilHalaman('kas')" class="nav-btn bg-transparent hover:bg-white/10 border border-amber-300/60 px-4 sm:px-5 py-1.5 text-white rounded-lg font-bold text-xs tracking-wider shadow-sm transition duration-200 uppercase">Kas</button>
+                    </div>
+                </div>
+
+                <div class="hidden md:block w-20 flex-shrink-0"></div>
+
+            </div>
+        </header>
+
+        <main class="max-w-5xl mx-auto mt-6 sm:mt-8 p-3 sm:p-4">
+            
+            <!-- HALAMAN BERANDA -->
+            <div id="page-beranda" class="halaman-menu">
+                <div class="mb-6 card-transparan p-4 rounded-xl shadow-md border border-amber-200/80 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2 w-full">
+                        <span class="text-amber-700 dark:text-amber-400 font-bold text-sm">🔍</span>
+                        <input type="text" id="search-beranda" placeholder="CARI PENGUMUMAN ATAU INFORMASI..." onkeyup="cariBeranda()" class="w-full bg-white/90 dark:bg-slate-800 dark:text-white dark:border-slate-600 border border-amber-300 rounded-lg px-3 py-1.5 text-xs uppercase focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder:normal-case font-medium">
+                    </div>
+                </div>
+
+                <div id="kontainer-list-beranda">
+                    <section class="card-transparan rounded-xl shadow-lg border border-amber-200/80 p-6 sm:p-8 mb-8 text-center">
+                      <h2 class="text-xl sm:text-2xl font-bold mb-3 text-gold-custom uppercase tracking-wide">Update Terbaru</h2>
+                      <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base normal-case font-medium">Memuat informasi terbaru...</p>
+                    </section>
+                </div>
+            </div>
+
+            <!-- HALAMAN GALERI -->
+            <div id="page-galeri" class="halaman-menu" style="display: none;"></div>
+
+            <!-- HALAMAN KAS -->
+            <div id="page-kas" class="halaman-menu" style="display: none;">
+                <div class="card-transparan p-4 sm:p-6 rounded-xl shadow-lg border border-amber-200/80 mb-8">
+                    
+                    <!-- 2 KATEGORI UTAMA + CASHFLOW (TANPA TOMBOL RINGKASAN KAS) -->
+                    <div class="mb-6 flex justify-center gap-2 sm:gap-3 flex-wrap border-b border-amber-200 dark:border-slate-700 pb-4">
+                        <button onclick="pilihMenuKas('operasional')" id="menu-operasional" class="px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/80 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-amber-300 dark:border-slate-700 shadow-sm transition flex items-center gap-1.5">
+                            🟢 Dana Operasional
+                        </button>
+                        <button onclick="pilihMenuKas('wisuda')" id="menu-wisuda" class="px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/80 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-amber-300 dark:border-slate-700 shadow-sm transition flex items-center gap-1.5">
+                            🔵 Dana Wisuda
+                        </button>
+                        <button onclick="pilihMenuKas('cashflow')" id="menu-cashflow" class="px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/80 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-amber-300 dark:border-slate-700 shadow-sm transition flex items-center gap-1.5">
+                            📊 Arus Kas (Cashflow)
+                        </button>
+                    </div>
+
+                    <!-- KONTEN 1: RINGKASAN MAKRO KAS (DEFAULT SAAT KLIK KAS DI HEADER ATAS) -->
+                    <div id="konten-ringkasan" class="kas-section">
+                        <div class="text-center mb-6">
+                            <h2 class="text-lg sm:text-xl font-bold text-gold-custom uppercase tracking-wide">Rekapitulasi Total Keseluruhan Kas Angkatan</h2>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 normal-case font-medium mt-1">Akumulasi total kewajiban dan capaian dana seluruh warga angkatan</p>
+                        </div>
+
+                        <!-- KARTU STATISTIK MAKRO -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                          <div class="card-gold-border p-4 rounded-lg shadow-sm">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Uang Yang Dibutuhkan</span>
+                            <h3 id="makro-target" class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mt-1">Rp0</h3>
+                          </div>
+                          <div class="p-4 rounded-lg shadow-sm bg-emerald-50 dark:bg-slate-800 border-l-4 border-emerald-600">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Telah Bayar</span>
+                            <h3 id="makro-bayar" class="text-lg sm:text-xl font-bold text-emerald-700 dark:text-emerald-400 mt-1">Rp0</h3>
+                          </div>
+                          <div class="p-4 rounded-lg shadow-sm bg-amber-50 dark:bg-slate-800 border-l-4 border-amber-600">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Progres Capaian Total</span>
+                            <h3 id="makro-persen" class="text-lg sm:text-xl font-bold text-amber-700 dark:text-amber-400 mt-1">0%</h3>
+                          </div>
+                        </div>
+
+                        <!-- CATATAN / PENJELASAN KAS (VERSI TRANSPARANSI BARU) -->
+                        <div class="p-4 sm:p-6 rounded-xl bg-amber-50/80 dark:bg-slate-800/80 border border-amber-300/60 dark:border-slate-700 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium space-y-3">
+                            <h4 class="font-bold text-amber-900 dark:text-amber-400 mb-2 uppercase tracking-wider text-sm sm:text-base">📌 Transparansi Uang Kas Angkatan Al-Asyraf</h4>
+                            
+                            <p class="normal-case">Assalamu’alaikum warahmatullahi wabarakatuh.</p>
+                            
+                            <p class="normal-case">Untuk memberikan pemahaman dan transparansi kepada seluruh anggota, perlu kami sampaikan bahwa total uang kas angkatan sebesar <strong>Rp300.000/orang</strong> dibagi menjadi dua peruntukan:</p>
+                            
+                            <div class="space-y-2 pl-2 sm:pl-4 border-l-2 border-amber-400/60">
+                                <p class="normal-case"><strong>1. Rp50.000 – Dana Operasional Angkatan</strong><br>
+                                Dana ini diperuntukkan bagi kebutuhan operasional dan kegiatan angkatan. Adapun penggunaan serta <em>cash flow</em> (pemasukan dan pengeluarannya) dapat dilihat secara transparan melalui Portal Angkatan Al-Asyraf yang telah disediakan.<br>
+                                Jadi, setiap anggota dapat mengakses dan memantau secara langsung pemasukan, pengeluaran, serta saldo dana operasional angkatan melalui portal tersebut.</p>
+                                
+                                <p class="normal-case"><strong>2. Rp250.000 – Dana Panggung Wisuda</strong><br>
+                                Dana ini secara khusus dialokasikan untuk kebutuhan panggung wisuda angkatan Al-Asyraf. Dana tersebut akan digunakan ketika kebutuhan persiapan dan pelaksanaan wisuda mulai berjalan, sehingga pengeluarannya akan dilakukan sesuai kebutuhan pada waktu mendekati pelaksanaan wisuda.</p>
+                            </div>
+                            
+                            <p class="normal-case">Dengan demikian, dari total Rp300.000/orang, sebesar Rp50.000 merupakan dana operasional yang <em>cash flow</em>-nya dapat dipantau melalui Portal Angkatan, sedangkan Rp250.000 merupakan dana khusus panggung wisuda yang penggunaannya akan disesuaikan dengan kebutuhan menjelang wisuda.</p>
+                            
+                            <p class="normal-case">Hal ini disampaikan sebagai bentuk keterbukaan dan tanggung jawab pengelolaan kas angkatan, sehingga seluruh anggota dapat mengetahui dengan jelas peruntukan dan penggunaan dana yang telah dikumpulkan bersama.</p>
+                            
+                            <p class="normal-case">Terima kasih atas perhatian dan kerja samanya. 🙏</p>
+                            
+                            <p class="normal-case font-semibold">Wassalamu’alaikum warahmatullahi wabarakatuh.</p>
+                        </div>
+                    </div>
+
+                    <!-- KONTEN 2: DANA OPERASIONAL (DENGAN TABEL NAMA & FILTER PRODI) -->
+                    <div id="konten-operasional" class="kas-section" style="display: none;">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                          <div class="card-gold-border p-4 rounded-lg shadow-sm">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Target Dana Operasional</span>
+                            <h3 id="target-op" class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mt-1">Rp0</h3>
+                          </div>
+                          <div class="p-4 rounded-lg shadow-sm bg-emerald-50 dark:bg-slate-800 border-l-4 border-emerald-600">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Telah Bayar Operasional</span>
+                            <h3 id="bayar-op" class="text-lg sm:text-xl font-bold text-emerald-700 dark:text-emerald-400 mt-1">Rp0</h3>
+                          </div>
+                          <div class="p-4 rounded-lg shadow-sm bg-amber-50 dark:bg-slate-800 border-l-4 border-amber-600">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Progres Operasional</span>
+                            <h3 id="persen-op" class="text-lg sm:text-xl font-bold text-amber-700 dark:text-amber-400 mt-1">0%</h3>
+                          </div>
+                        </div>
+
+                        <!-- FILTER & PENCARIAN -->
+                        <div class="bg-amber-50/75 dark:bg-slate-800/80 p-4 rounded-lg border border-amber-200/60 dark:border-slate-700 mb-6 flex flex-wrap gap-3 justify-between items-center">
+                          <div class="flex gap-2 flex-wrap" id="filter-container-op">
+                            <button onclick="filterProdiOp('ALL')" class="btn-prodi-op px-3 sm:px-4 py-1.5 border border-amber-300 bg-amber-600 text-white rounded-md cursor-pointer text-xs font-bold uppercase tracking-wider shadow-sm transition">Semua</button>
+                            <button onclick="filterProdiOp('PBA')" class="btn-prodi-op px-3 sm:px-4 py-1.5 border border-amber-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-md cursor-pointer text-xs font-bold uppercase tracking-wider hover:border-amber-400 transition">PBA</button>
+                            <button onclick="filterProdiOp('IAT')" class="btn-prodi-op px-3 sm:px-4 py-1.5 border border-amber-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-md cursor-pointer text-xs font-bold uppercase tracking-wider hover:border-amber-400 transition">IAT</button>
+                            <button onclick="filterProdiOp('HKI')" class="btn-prodi-op px-3 sm:px-4 py-1.5 border border-amber-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-md cursor-pointer text-xs font-bold uppercase tracking-wider hover:border-amber-400 transition">HKI</button>
+                          </div>
+                          <div class="w-full sm:w-auto">
+                            <input type="text" id="search-nama-op" placeholder="CARI NAMA WARGA..." onkeyup="cariNamaOp()" class="px-3 py-1.5 border border-amber-300 dark:border-slate-600 bg-white/90 dark:bg-slate-900 dark:text-white rounded-md text-xs w-full sm:w-56 uppercase focus:outline-none focus:ring-2 focus:ring-amber-500 transition placeholder:normal-case font-medium">
+                          </div>
+                        </div>
+
+                        <!-- TABEL OPERASIONAL -->
+                        <div class="overflow-x-auto rounded-lg border border-amber-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900">
+                            <table class="w-full border-collapse text-left text-xs">
+                                <thead>
+                                    <tr class="bg-amber-100/70 dark:bg-slate-800 text-amber-900 dark:text-amber-400 border-b border-amber-200 dark:border-slate-700 font-bold uppercase tracking-wider">
+                                        <th class="py-3 px-3 text-center w-12">NO</th>
+                                        <th class="py-3 px-4">NAMA</th>
+                                        <th class="py-3 px-3 text-center w-16">PRODI</th>
+                                        <th class="py-3 px-4 text-right">TELAH BAYAR</th>
+                                        <th class="py-3 px-4 text-right">TARGET</th>
+                                        <th class="py-3 px-3 text-center w-20">PERSENTASE</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabel-op-body" class="divide-y divide-amber-100 dark:divide-slate-800 uppercase font-medium"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- KONTEN 3: DANA WISUDA (DENGAN TABEL NAMA & FILTER PRODI) -->
+                    <div id="konten-wisuda" class="kas-section" style="display: none;">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                          <div class="card-gold-border p-4 rounded-lg shadow-sm">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Target Dana Wisuda</span>
+                            <h3 id="target-wis" class="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mt-1">Rp0</h3>
+                          </div>
+                          <div class="p-4 rounded-lg shadow-sm bg-emerald-50 dark:bg-slate-800 border-l-4 border-emerald-600">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Telah Bayar Wisuda</span>
+                            <h3 id="bayar-wis" class="text-lg sm:text-xl font-bold text-emerald-700 dark:text-emerald-400 mt-1">Rp0</h3>
+                          </div>
+                          <div class="p-4 rounded-lg shadow-sm bg-amber-50 dark:bg-slate-800 border-l-4 border-amber-600">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Progres Wisuda</span>
+                            <h3 id="persen-wis" class="text-lg sm:text-xl font-bold text-amber-700 dark:text-amber-400 mt-1">0%</h3>
+                          </div>
+                        </div>
+
+                        <!-- FILTER & PENCARIAN -->
+                        <div class="bg-amber-50/75 dark:bg-slate-800/80 p-4 rounded-lg border border-amber-200/60 dark:border-slate-700 mb-6 flex flex-wrap gap-3 justify-between items-center">
+                          <div class="flex gap-2 flex-wrap" id="filter-container-wis">
+                            <button onclick="filterProdiWis('ALL')" class="btn-prodi-wis px-3 sm:px-4 py-1.5 border border-amber-300 bg-amber-600 text-white rounded-md cursor-pointer text-xs font-bold uppercase tracking-wider shadow-sm transition">Semua</button>
+                            <button onclick="filterProdiWis('PBA')" class="btn-prodi-wis px-3 sm:px-4 py-1.5 border border-amber-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-md cursor-pointer text-xs font-bold uppercase tracking-wider hover:border-amber-400 transition">PBA</button>
+                            <button onclick="filterProdiWis('IAT')" class="btn-prodi-wis px-3 sm:px-4 py-1.5 border border-amber-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-md cursor-pointer text-xs font-bold uppercase tracking-wider hover:border-amber-400 transition">IAT</button>
+                            <button onclick="filterProdiWis('HKI')" class="btn-prodi-wis px-3 sm:px-4 py-1.5 border border-amber-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-md cursor-pointer text-xs font-bold uppercase tracking-wider hover:border-amber-400 transition">HKI</button>
+                          </div>
+                          <div class="w-full sm:w-auto">
+                            <input type="text" id="search-nama-wis" placeholder="CARI NAMA WARGA..." onkeyup="cariNamaWis()" class="px-3 py-1.5 border border-amber-300 dark:border-slate-600 bg-white/90 dark:bg-slate-900 dark:text-white rounded-md text-xs w-full sm:w-56 uppercase focus:outline-none focus:ring-2 focus:ring-amber-500 transition placeholder:normal-case font-medium">
+                          </div>
+                        </div>
+
+                        <!-- TABEL WISUDA -->
+                        <div class="overflow-x-auto rounded-lg border border-amber-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900">
+                            <table class="w-full border-collapse text-left text-xs">
+                                <thead>
+                                    <tr class="bg-amber-100/70 dark:bg-slate-800 text-amber-900 dark:text-amber-400 border-b border-amber-200 dark:border-slate-700 font-bold uppercase tracking-wider">
+                                        <th class="py-3 px-3 text-center w-12">NO</th>
+                                        <th class="py-3 px-4">NAMA</th>
+                                        <th class="py-3 px-3 text-center w-16">PRODI</th>
+                                        <th class="py-3 px-4 text-right">TELAH BAYAR</th>
+                                        <th class="py-3 px-4 text-right">TARGET</th>
+                                        <th class="py-3 px-3 text-center w-20">PERSENTASE</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabel-wis-body" class="divide-y divide-amber-100 dark:divide-slate-800 uppercase font-medium"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- KONTEN 4: CASHFLOW -->
+                    <div id="konten-kas-cashflow" class="kas-section" style="display: none;">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                          <div class="p-4 rounded-lg shadow-sm bg-blue-50 dark:bg-slate-800 border-l-4 border-blue-600">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Pemasukan (Saldo Awal)</span>
+                            <h3 id="cash-pemasukan" class="text-lg sm:text-xl font-bold text-blue-700 dark:text-blue-400 mt-1">Rp0</h3>
+                          </div>
+                          <div class="p-4 rounded-lg shadow-sm bg-rose-50 dark:bg-slate-800 border-l-4 border-rose-600">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Pengeluaran (Keluar)</span>
+                            <h3 id="cash-pengeluaran" class="text-lg sm:text-xl font-bold text-rose-700 dark:text-rose-400 mt-1">Rp0</h3>
+                          </div>
+                          <div class="p-4 rounded-lg shadow-sm bg-purple-50 dark:bg-slate-800 border-l-4 border-purple-600">
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Sisa Saldo Bersih</span>
+                            <h3 id="cash-saldo-bersih" class="text-lg sm:text-xl font-bold text-purple-700 dark:text-purple-400 mt-1">Rp0</h3>
+                          </div>
+                        </div>
+
+                        <!-- TABEL CASHFLOW -->
+                        <div class="overflow-x-auto rounded-lg border border-amber-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900 mb-4">
+                            <table class="w-full border-collapse text-left text-xs">
+                                <thead>
+                                    <tr class="bg-amber-100/70 dark:bg-slate-800 text-amber-900 dark:text-amber-400 border-b border-amber-200 dark:border-slate-700 font-bold uppercase tracking-wider">
+                                        <th class="py-3 px-3 text-center w-12">NO</th>
+                                        <th class="py-3 px-3 text-center">TANGGAL</th>
+                                        <th class="py-3 px-4">KETERANGAN</th>
+                                        <th class="py-3 px-4 text-right">SALDO AWAL</th>
+                                        <th class="py-3 px-4 text-right">KELUAR</th>
+                                        <th class="py-3 px-4 text-right">SISA SALDO</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabel-cashflow-body" class="divide-y divide-amber-100 dark:divide-slate-800 uppercase font-medium"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- TOMBOL BACK TO TOP -->
+    <button id="btn-backtotop" onclick="kembaliKeAtas()" class="fixed bottom-6 right-6 z-40 bg-amber-700 hover:bg-amber-800 text-white w-10 h-10 rounded-full shadow-lg border border-amber-400/50 flex items-center justify-center text-sm font-bold transition-all duration-300 transform translate-y-20 opacity-0 cursor-pointer">
+        ▲
+    </button>
+
+    <!-- LIGHTBOX MODAL DENGAN FITUR ZOOM -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden" onclick="tutupLightbox()">
+        <div class="relative max-w-4xl max-h-[90vh] w-full flex items-center justify-center">
+            <button class="absolute top-4 right-4 bg-amber-600 hover:bg-amber-700 text-white font-bold w-10 h-10 rounded-full flex items-center justify-center text-lg shadow-lg transition cursor-pointer" onclick="tutupLightbox()">&times;</button>
+            <img id="lightbox-img" src="" alt="Zoom Poster" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl border-2 border-amber-400/50">
+        </div>
+    </div>
+
+    <!-- MODAL DETAIL ALBUM KEGIATAN -->
+    <div id="album-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="card-transparan bg-white dark:bg-slate-900 max-w-3xl max-h-[85vh] w-full rounded-2xl shadow-2xl border border-amber-400/50 overflow-hidden flex flex-col">
+            <div class="p-4 bg-amber-900 text-amber-100 flex items-center justify-between border-b border-amber-600">
+                <h3 id="album-title" class="font-bold text-sm sm:text-base uppercase tracking-wider">Detail Kegiatan</h3>
+                <button onclick="tutupAlbumModal()" class="bg-amber-700 hover:bg-amber-800 text-white font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm transition cursor-pointer">&times;</button>
+            </div>
+            <div id="album-content-list" class="p-4 sm:p-6 overflow-y-auto space-y-4 max-h-[70vh]">
+                <!-- Daftar foto kegiatan akan dimuat di sini secara dinamis -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-6 text-slate-600 dark:text-slate-400 text-xs border-t border-amber-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/80 backdrop-blur-md mt-12 uppercase tracking-wider font-semibold">
+        &copy; 2026 Al-Asyraf XVII. All rights reserved.
+    </footer>
+
+    <!-- SCRIPT UTAMA KAS -->
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzo4lfLPAMAWANbDf7G0ygkrtKKZzndyrI1AWSliW-IKhgzwC39JI7GVG2uKP32DPr0/exec";
+
+        function toggleDarkMode() {
+            const body = document.body;
+            const btn = document.getElementById('btn-darkmode');
+            body.classList.toggle('dark');
+            
+            if (body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                btn.innerHTML = '☀️ <span class="hidden sm:inline">Mode</span>';
+            } else {
+                localStorage.setItem('theme', 'light');
+                btn.innerHTML = '🌙 <span class="hidden sm:inline">Mode</span>';
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+            const btn = document.getElementById('btn-darkmode');
+            if(btn) btn.innerHTML = '☀️ <span class="hidden sm:inline">Mode</span>';
+        }
+
+        function tampilHalaman(namaHalaman) {
+            const pageBeranda = document.getElementById('page-beranda');
+            const pageGaleri = document.getElementById('page-galeri');
+            const pageKas = document.getElementById('page-kas');
+
+            if (pageBeranda) pageBeranda.style.display = 'none';
+            if (pageGaleri) pageGaleri.style.display = 'none';
+            if (pageKas) pageKas.style.display = 'none';
+
+            ['beranda', 'galeri', 'kas'].forEach(menu => {
+                const btn = document.getElementById(`nav-${menu}`);
+                if (btn) {
+                    btn.className = "nav-btn bg-transparent hover:bg-white/10 border border-amber-300/60 px-4 sm:px-5 py-1.5 text-white rounded-lg font-bold text-xs tracking-wider shadow-sm transition duration-200 uppercase";
+                }
+            });
+
+            const activeBtn = document.getElementById(`nav-${namaHalaman}`);
+            if (activeBtn) {
+                activeBtn.className = "nav-btn bg-amber-600 border border-amber-300 px-4 sm:px-5 py-1.5 text-white rounded-lg font-bold text-xs tracking-wider shadow-sm transition duration-200 uppercase";
+            }
+
+            if (namaHalaman === 'beranda' && pageBeranda) {
+                pageBeranda.style.display = 'block';
+            } else if (namaHalaman === 'galeri' && pageGaleri) {
+                pageGaleri.style.display = 'block';
+            } else if (namaHalaman === 'kas' && pageKas) {
+                pageKas.style.display = 'block';
+                pilihMenuKas('ringkasan');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        let prodiAktifOp = 'ALL';
+        let prodiAktifWis = 'ALL';
+        let dataOp = [];
+        let dataWis = [];
+
+        const csvUrlOp = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQS5m5XbCmA6is1DwZyxyH_VO01iZzt5nyuuiIhm6hD0kON-VRXmM8wWbPBjHItmrrIaiZleBN11ZV7/pub?gid=1457247233&single=true&output=csv";
+        const csvUrlWis = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQS5m5XbCmA6is1DwZyxyH_VO01iZzt5nyuuiIhm6hD0kON-VRXmM8wWbPBjHItmrrIaiZleBN11ZV7/pub?gid=947726966&single=true&output=csv";
+        const csvUrlCashflow = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQS5m5XbCmA6is1DwZyxyH_VO01iZzt5nyuuiIhm6hD0kON-VRXmM8wWbPBjHItmrrIaiZleBN11ZV7/pub?gid=2112204540&single=true&output=csv";
+
+        function pilihMenuKas(kat) {
+            const menuOp = document.getElementById('menu-operasional');
+            const menuWis = document.getElementById('menu-wisuda');
+            const menuCash = document.getElementById('menu-cashflow');
+            
+            const kontenRingkasan = document.getElementById('konten-ringkasan');
+            const kontenOp = document.getElementById('konten-operasional');
+            const kontenWis = document.getElementById('konten-wisuda');
+            const kontenCash = document.getElementById('konten-kas-cashflow');
+
+            kontenRingkasan.style.display = 'none';
+            kontenOp.style.display = 'none';
+            kontenWis.style.display = 'none';
+            kontenCash.style.display = 'none';
+
+            [menuOp, menuWis, menuCash].forEach(m => {
+                m.className = "px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/80 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-amber-300 dark:border-slate-700 shadow-sm transition flex items-center gap-1.5";
+            });
+
+            if (kat === 'ringkasan') {
+                kontenRingkasan.style.display = 'block';
+                hitungMakroGlobal();
+            } else if (kat === 'operasional') {
+                kontenOp.style.display = 'block';
+                menuOp.className = "px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-amber-700 text-white shadow-md transition flex items-center gap-1.5";
+            } else if (kat === 'wisuda') {
+                kontenWis.style.display = 'block';
+                menuWis.className = "px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-amber-700 text-white shadow-md transition flex items-center gap-1.5";
+            } else {
+                kontenCash.style.display = 'block';
+                menuCash.className = "px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-amber-700 text-white shadow-md transition flex items-center gap-1.5";
+            }
+        }
+
+        async function initLoadData() {
+            try {
+                let [resOp, resWis] = await Promise.all([
+                    fetch(csvUrlOp),
+                    fetch(csvUrlWis)
+                ]);
+                let textOp = await resOp.text();
+                let textWis = await resWis.text();
+
+                dataOp = parseTigaTabelSamping(textOp);
+                dataWis = parseTigaTabelSamping(textWis);
+
+                jalankanFilterOp();
+                jalankanFilterWis();
+                hitungMakroGlobal();
+            } catch(e) {
+                console.error("Gagal muat data kas:", e);
+            }
+        }
+
+        function hitungMakroGlobal() {
+            let totalB = 0, totalT = 0;
+            dataOp.forEach(i => { totalB += parseInt(i.telahBayar.replace(/[^0-9]/g, '')) || 0; totalT += parseInt(i.target.replace(/[^0-9]/g, '')) || 0; });
+            dataWis.forEach(i => { totalB += parseInt(i.telahBayar.replace(/[^0-9]/g, '')) || 0; totalT += parseInt(i.target.replace(/[^0-9]/g, '')) || 0; });
+            
+            let persen = totalT > 0 ? ((totalB / totalT) * 100).toFixed(1) : 0;
+            if(document.getElementById('makro-target')) document.getElementById('makro-target').innerText = formatRupiahKas(totalT);
+            if(document.getElementById('makro-bayar')) document.getElementById('makro-bayar').innerText = formatRupiahKas(totalB);
+            if(document.getElementById('makro-persen')) document.getElementById('makro-persen').innerText = persen + '%';
+        }
+
+        function parseTigaTabelSamping(text) {
+            let lines = text.split("\n");
+            let result = [];
+            let nomorUrut = 1;
+            let mulaiBaca = false;
+
+            for (let i = 0; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+                let cols = parseCSVLine(lines[i]);
+                let joined = cols.join(" ").toUpperCase();
+
+                if (joined.includes("NAMA")) {
+                    mulaiBaca = true;
+                    continue;
+                }
+
+                if (mulaiBaca) {
+                    let nama1 = cols[1] ? cols[1].trim() : "";
+                    if (nama1 && !nama1.toUpperCase().includes("TOTAL") && !nama1.toUpperCase().includes("REKAP") && !nama1.match(/^\d+$/)) {
+                        let bNum = parseInt((cols[2] || "0").replace(/[^0-9]/g, '')) || 0;
+                        let tNum = parseInt((cols[3] || "0").replace(/[^0-9]/g, '')) || 0;
+                        let persenVal = tNum > 0 ? ((bNum / tNum) * 100).toFixed(1) + '%' : '0%';
+                        result.push({ no: nomorUrut++, nama: nama1, prodi: 'PBA', telahBayar: formatRupiahKas(bNum), target: formatRupiahKas(tNum), persentase: persenVal });
+                    }
+
+                    let nama2 = cols[6] ? cols[6].trim() : "";
+                    if (nama2 && !nama2.toUpperCase().includes("TOTAL") && !nama2.toUpperCase().includes("REKAP") && !nama2.match(/^\d+$/)) {
+                        let bNum = parseInt((cols[7] || "0").replace(/[^0-9]/g, '')) || 0;
+                        let tNum = parseInt((cols[8] || "0").replace(/[^0-9]/g, '')) || 0;
+                        let persenVal = tNum > 0 ? ((bNum / tNum) * 100).toFixed(1) + '%' : '0%';
+                        result.push({ no: nomorUrut++, nama: nama2, prodi: 'IAT', telahBayar: formatRupiahKas(bNum), target: formatRupiahKas(tNum), persentase: persenVal });
+                    }
+
+                    let nama3 = cols[11] ? cols[11].trim() : "";
+                    if (nama3 && !nama3.toUpperCase().includes("TOTAL") && !nama3.toUpperCase().includes("REKAP") && !nama3.match(/^\d+$/)) {
+                        let bNum = parseInt((cols[12] || "0").replace(/[^0-9]/g, '')) || 0;
+                        let tNum = parseInt((cols[13] || "0").replace(/[^0-9]/g, '')) || 0;
+                        let persenVal = tNum > 0 ? ((bNum / tNum) * 100).toFixed(1) + '%' : '0%';
+                        result.push({ no: nomorUrut++, nama: nama3, prodi: 'HKI', telahBayar: formatRupiahKas(bNum), target: formatRupiahKas(tNum), persentase: persenVal });
+                    }
+                }
+            }
+            return result;
+        }
+
+        function filterProdiOp(prodi) {
+            prodiAktifOp = prodi.toUpperCase();
+            let buttons = document.querySelectorAll('.btn-prodi-op');
+            buttons.forEach(btn => {
+                let textBtn = btn.innerText.toUpperCase();
+                if (textBtn === prodi || (prodi === 'ALL' && textBtn === 'SEMUA')) {
+                    btn.style.background = '#d97706'; btn.style.color = 'white'; btn.style.borderColor = '#b45309';
+                } else {
+                    btn.style.background = ''; btn.style.color = '';
+                }
+            });
+            jalankanFilterOp();
+        }
+
+        function cariNamaOp() { jalankanFilterOp(); }
+
+        function jalankanFilterOp() {
+            let keyword = document.getElementById('search-nama-op').value.trim().toLowerCase();
+            let filtered = dataOp.filter(item => {
+                let matchName = item.nama.toLowerCase().includes(keyword);
+                let matchProdi = (prodiAktifOp === 'ALL') || (item.prodi === prodiAktifOp);
+                return matchName && matchProdi;
+            });
+            tampilkanTabel('tabel-op-body', filtered);
+            hitungRingkasan('target-op', 'bayar-op', 'persen-op', filtered);
+        }
+
+        function filterProdiWis(prodi) {
+            prodiAktifWis = prodi.toUpperCase();
+            let buttons = document.querySelectorAll('.btn-prodi-wis');
+            buttons.forEach(btn => {
+                let textBtn = btn.innerText.toUpperCase();
+                if (textBtn === prodi || (prodi === 'ALL' && textBtn === 'SEMUA')) {
+                    btn.style.background = '#d97706'; btn.style.color = 'white'; btn.style.borderColor = '#b45309';
+                } else {
+                    btn.style.background = ''; btn.style.color = '';
+                }
+            });
+            jalankanFilterWis();
+        }
+
+        function cariNamaWis() { jalankanFilterWis(); }
+
+        function jalankanFilterWis() {
+            let keyword = document.getElementById('search-nama-wis').value.trim().toLowerCase();
+            let filtered = dataWis.filter(item => {
+                let matchName = item.nama.toLowerCase().includes(keyword);
+                let matchProdi = (prodiAktifWis === 'ALL') || (item.prodi === prodiAktifWis);
+                return matchName && matchProdi;
+            });
+            tampilkanTabel('tabel-wis-body', filtered);
+            hitungRingkasan('target-wis', 'bayar-wis', 'persen-wis', filtered);
+        }
+
+        function tampilkanTabel(tbodyId, data) {
+            const tbody = document.getElementById(tbodyId);
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 20px; color: #666;" class="normal-case">Data tidak ditemukan.</td></tr>`;
+                return;
+            }
+
+            data.forEach((row, index) => {
+                let tr = document.createElement('tr');
+                tr.className = "hover:bg-amber-50/50 dark:hover:bg-slate-800 transition uppercase font-medium";
+                tr.innerHTML = `
+                    <td class="py-3 px-3 text-center text-slate-500 dark:text-slate-400 font-semibold">${index + 1}</td>
+                    <td class="py-3 px-4 font-bold text-slate-800 dark:text-slate-200 whitespace-nowrap">${row.nama}</td>
+                    <td class="py-3 px-3 text-center"><span class="bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 px-2.5 py-1 rounded text-[11px] font-bold">${row.prodi}</span></td>
+                    <td class="py-3 px-4 text-right font-bold text-emerald-600 dark:text-emerald-400">${row.telahBayar}</td>
+                    <td class="py-3 px-4 text-right font-semibold text-slate-600 dark:text-slate-400">${row.target}</td>
+                    <td class="py-3 px-3 text-center font-bold text-amber-600 dark:text-amber-400">${row.persentase}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function hitungRingkasan(targetId, bayarId, persenId, data) {
+            let totalBayar = 0, totalTarget = 0;
+            data.forEach(item => {
+                totalBayar += parseInt(item.telahBayar.replace(/[^0-9]/g, '')) || 0;
+                totalTarget += parseInt(item.target.replace(/[^0-9]/g, '')) || 0;
+            });
+            let persen = totalTarget > 0 ? ((totalBayar / totalTarget) * 100).toFixed(1) : 0;
+            if(document.getElementById(targetId)) document.getElementById(targetId).innerText = formatRupiahKas(totalTarget);
+            if(document.getElementById(bayarId)) document.getElementById(bayarId).innerText = formatRupiahKas(totalBayar);
+            if(document.getElementById(persenId)) document.getElementById(persenId).innerText = persen + '%';
+        }
+
+        // LOAD CASHFLOW
+        fetch(csvUrlCashflow)
+            .then(res => res.text())
+            .then(data => parseAndShowCashflowPro(data))
+            .catch(err => console.error('Gagal cashflow:', err));
+
+        function parseAndShowCashflowPro(text) {
+            let lines = text.split("\n");
+            let tbody = document.getElementById('tabel-cashflow-body');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            let listCash = [];
+            let totalPemasukan = 0, totalPengeluaran = 0, sisaSaldoAkhir = 0;
+            let headerIndex = {};
+            let mulaiBaca = false;
+
+            for (let i = 0; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+                let currentLine = parseCSVLine(lines[i]);
+                let joined = currentLine.join(" ").toUpperCase();
+
+                if (joined.includes("KETERANGAN") && (joined.includes("TANGGAL") || joined.includes("MASUK") || joined.includes("KELUAR"))) {
+                    mulaiBaca = true;
+                    currentLine.forEach((col, idx) => {
+                        let c = col.toUpperCase();
+                        if (c.includes("TANGGAL")) headerIndex.tanggal = idx;
+                        else if (c.includes("KETERANGAN")) headerIndex.keterangan = idx;
+                        else if (c.includes("SALDO AWAL") || c.includes("MASUK") || c.includes("PEMASUKAN")) headerIndex.saldoAwal = idx;
+                        else if (c.includes("KELUAR") || c.includes("PENGELUARAN")) headerIndex.keluar = idx;
+                        else if (c.includes("SISA SALDO") || c.includes("SALDO AKHIR")) headerIndex.sisaSaldo = idx;
+                    });
+                    continue;
+                }
+
+                if (mulaiBaca) {
+                    if (joined.includes("SISA SALDO OPERASIONAL") || joined.includes("TOTAL")) {
+                        for (let c = 0; c < currentLine.length; c++) {
+                            let cleanNum = parseInt(currentLine[c].replace(/[^0-9]/g, ''));
+                            if (cleanNum > 0 && currentLine[c].includes("Rp")) {
+                                sisaSaldoAkhir = cleanNum;
+                            }
+                        }
+                    }
+
+                    let ketIdx = headerIndex.keterangan !== undefined ? headerIndex.keterangan : 2;
+                    let keterangan = currentLine[ketIdx] ? currentLine[ketIdx].trim() : "";
+                    
+                    if (keterangan && !keterangan.toUpperCase().includes("SISA SALDO") && !keterangan.toUpperCase().includes("KETERANGAN")) {
+                        let tglIdx = headerIndex.tanggal !== undefined ? headerIndex.tanggal : 1;
+                        let awalIdx = headerIndex.saldoAwal !== undefined ? headerIndex.saldoAwal : 3;
+                        let keluarIdx = headerIndex.keluar !== undefined ? headerIndex.keluar : 4;
+                        let sisaIdx = headerIndex.sisaSaldo !== undefined ? headerIndex.sisaSaldo : 5;
+
+                        let tanggal = currentLine[tglIdx] ? currentLine[tglIdx].trim() : "-";
+                        let saldoAwal = currentLine[awalIdx] ? currentLine[awalIdx].trim() : "Rp0";
+                        let keluar = currentLine[keluarIdx] ? currentLine[keluarIdx].trim() : "Rp0";
+                        let sisaSaldo = currentLine[sisaIdx] ? currentLine[sisaIdx].trim() : "Rp0";
+
+                        listCash.push({ tanggal, keterangan, saldoAwal, keluar, sisaSaldo });
+
+                        let numAwal = parseInt(saldoAwal.replace(/[^0-9]/g, '')) || 0;
+                        if (totalPemasukan === 0 && numAwal > 0) totalPemasukan = numAwal;
+
+                        let numKeluar = parseInt(keluar.replace(/[^0-9]/g, '')) || 0;
+                        totalPengeluaran += numKeluar;
+
+                        let numSisa = parseInt(sisaSaldo.replace(/[^0-9]/g, '')) || 0;
+                        if (numSisa > 0) sisaSaldoAkhir = numSisa;
+                    }
+                }
+            }
+
+            if (listCash.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 20px; color: #666;" class="normal-case">Belum ada data cashflow.</td></tr>`;
+                return;
+            }
+
+            listCash.forEach((item, index) => {
+                let tr = document.createElement('tr');
+                tr.className = "hover:bg-amber-50/50 dark:hover:bg-slate-800 transition uppercase font-medium";
+                tr.innerHTML = `
+                    <td class="py-3 px-3 text-center text-slate-500 dark:text-slate-400 font-semibold">${index + 1}</td>
+                    <td class="py-3 px-3 text-center text-slate-600 dark:text-slate-300 font-medium">${item.tanggal}</td>
+                    <td class="py-3 px-4 font-bold text-slate-800 dark:text-slate-200">${item.keterangan}</td>
+                    <td class="py-3 px-4 text-right text-blue-600 dark:text-blue-400 font-semibold">${item.saldoAwal}</td>
+                    <td class="py-3 px-4 text-right text-rose-600 dark:text-rose-400 font-semibold">${item.keluar}</td>
+                    <td class="py-3 px-4 text-right font-bold text-slate-800 dark:text-slate-200">${item.sisaSaldo}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            if(document.getElementById('cash-pemasukan')) document.getElementById('cash-pemasukan').innerText = formatRupiahKas(totalPemasukan);
+            if(document.getElementById('cash-pengeluaran')) document.getElementById('cash-pengeluaran').innerText = formatRupiahKas(totalPengeluaran);
+            if(document.getElementById('cash-saldo-bersih')) document.getElementById('cash-saldo-bersih').innerText = formatRupiahKas(sisaSaldoAkhir);
+        }
+
+        function formatRupiahKas(angka) {
+            return 'Rp ' + angka.toLocaleString('id-ID');
+        }
+
+        function parseCSVLine(text) {
+            let result = [];
+            let current = '';
+            let inQuotes = false;
+            for (let i = 0; i < text.length; i++) {
+                let char = text[i];
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current);
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current);
+            return result.map(item => item.replace(/^"|"$/g, '').trim());
+        }
+
+        // FUNGSI LIGHTBOX & INTERAKTIF ZOOM
+        let scale = 1;
+        let panned = false;
+        let startX = 0, startY = 0;
+        let translateX = 0, translateY = 0;
+
+        function bukaLightbox(urlGambar) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            img.src = urlGambar;
+            scale = 1;
+            translateX = 0;
+            translateY = 0;
+            img.style.transform = `translate(0px, 0px) scale(1)`;
+            modal.classList.remove('hidden');
+        }
+
+        function tutupLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+        }
+
+        const lightboxImg = document.getElementById('lightbox-img');
+        if (lightboxImg) {
+            lightboxImg.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const zoomIntensity = 0.15;
+                if (e.deltaY < 0) {
+                    scale += zoomIntensity;
+                } else {
+                    scale = Math.max(1, scale - zoomIntensity);
+                }
+                if (scale === 1) { translateX = 0; translateY = 0; }
+                lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+            });
+
+            lightboxImg.addEventListener('mousedown', (e) => {
+                if (scale > 1) {
+                    panned = true;
+                    startX = e.clientX - translateX;
+                    startY = e.clientY - translateY;
+                }
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!panned) return;
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+            });
+
+            window.addEventListener('mouseup', () => {
+                panned = false;
+            });
+        }
+
+        initLoadData();
+    </script>
+
+    <!-- SCRIPT BERANDA & GALERI (TERINTEGRASI LIKE, UNLIKE & KOMENTAR SHEETS) -->
+    <script>
+        const urlCSVBeranda = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRS7RFGzyAuiPqYJhP5Zii7pXpnUhpNoE3rEDXPl6dBttREoP4os_7b7B5ncjNTgwj5d2wdRQLLJ4u4/pub?gid=279264445&single=true&output=csv";
+        let semuaDataBeranda = [];
+        let globalLikes = {};
+
+        function parseCSVPro(text) {
+            let lines = [];
+            let row = [];
+            let inQuotes = false;
+            let current = '';
+            for (let i = 0; i < text.length; i++) {
+                let c = text[i];
+                let nextC = text[i + 1];
+                if (c === '"') {
+                    if (inQuotes && nextC === '"') { current += '"'; i++; }
+                    else { inQuotes = !inQuotes; }
+                } else if (c === ',' && !inQuotes) {
+                    row.push(current); current = '';
+                } else if ((c === '\r' || c === '\n') && !inQuotes) {
+                    if (c === '\r' && nextC === '\n') { i++; }
+                    row.push(current); lines.push(row); row = []; current = '';
+                } else { current += c; }
+            }
+            if (current || row.length > 0) { row.push(current); lines.push(row); }
+            return lines;
+        }
+
+        function getCleanImageUrl(rawLink) {
+            if (!rawLink) return "";
+            let link = rawLink.trim();
+            if (link.includes("id=")) {
+                try {
+                    const fileId = link.split("id=")[1].split("&")[0];
+                    if (fileId) return `https://lh3.googleusercontent.com/d/${fileId}`;
+                } catch (e) {}
+            }
+            if (link.includes("/file/d/")) {
+                try {
+                    const parts = link.split("/file/d/");
+                    const fileId = parts[1].split("/")[0];
+                    if (fileId) return `https://lh3.googleusercontent.com/d/${fileId}`;
+                } catch (e) {}
+            }
+            if (link.startsWith("http")) return link;
+            return "";
+        }
+
+        async function muatPengumuman() {
+            try {
+                try {
+                    const resLikes = await fetch(`${scriptURL}?action=getLikes`);
+                    globalLikes = await resLikes.json();
+                } catch(e) {
+                    console.log("Gagal memuat likes:", e);
+                }
+
+                const response = await fetch(urlCSVBeranda);
+                const dataText = await response.text();
+                const rows = parseCSVPro(dataText);
+                
+                semuaDataBeranda = [];
+                for (let i = rows.length - 1; i >= 1; i--) {
+                    const kolom = rows[i];
+                    if (kolom && kolom.length >= 4) {
+                        semuaDataBeranda.push({
+                            id: i,
+                            timestamp: kolom[0] || "Baru saja",
+                            judul: kolom[1] || "",
+                            poster: getCleanImageUrl(kolom[2] || ""),
+                            keterangan: kolom[3] || ""
+                        });
+                    }
+                }
+                tampilkanBeranda(semuaDataBeranda);
+            } catch (error) {
+                console.error("Gagal memuat beranda:", error);
+            }
+        }
+
+        function tampilkanBeranda(data) {
+            const kontainer = document.getElementById('kontainer-list-beranda');
+            if (!kontainer) return;
+            kontainer.innerHTML = "";
+            
+            data.forEach(post => {
+                const kartu = document.createElement('div');
+                kartu.className = "card-transparan rounded-xl shadow-xl border border-amber-200/80 p-6 md:p-10 mb-8 text-left border-t-4 border-amber-600 w-full";
+                let htmlIsi = `<div class="text-center mb-4"><span class="text-xs bg-amber-100/90 dark:bg-amber-900/60 dark:text-amber-200 text-amber-900 font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">${post.timestamp}</span></div>`;
+                if (post.judul) htmlIsi += `<h2 class="text-2xl md:text-3xl font-bold my-4 text-slate-800 dark:text-slate-100 uppercase text-center tracking-wide">${post.judul}</h2>`;
+                if (post.poster) {
+                    htmlIsi += `<div class="text-center mb-6 cursor-pointer group" onclick="bukaLightbox('${post.poster}')">
+                        <div class="relative overflow-hidden rounded-lg shadow-md inline-block max-h-[600px] w-full bg-slate-100 dark:bg-slate-800">
+                            <img src="${post.poster}" alt="Poster" class="mx-auto rounded-lg w-full object-contain max-h-[600px] group-hover:scale-102 transition duration-300" onerror="this.parentElement.style.display='none'">
+                        </div></div>`;
+                }
+                
+                if (post.keterangan) {
+                    let bersihKeterangan = post.keterangan.replace(/\\n/g, '<br>').replace(/\r?\n/g, '<br>');
+                    htmlIsi += `<div class="text-slate-700 dark:text-slate-200 mt-6 leading-relaxed normal-case text-base md:text-lg space-y-4 font-normal">${bersihKeterangan}</div>`;
+                }
+                
+                let totalLike = globalLikes[post.id] !== undefined ? parseInt(globalLikes[post.id]) : 0;
+                
+                htmlIsi += `
+                <div class="mt-8 pt-4 border-t border-amber-200/60 dark:border-slate-700 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300">
+                    <div class="flex items-center gap-4">
+                        <button onclick="handleLike(${post.id})" id="btn-like-${post.id}" class="flex items-center gap-1.5 bg-amber-50 dark:bg-slate-800 hover:bg-amber-100 text-amber-800 dark:text-amber-300 px-3 py-1.5 rounded-lg border border-amber-200 dark:border-slate-700 transition">
+                            ❤️ <span id="count-like-${post.id}">${totalLike}</span> Suka
+                        </button>
+                        <button onclick="toggleKomentar(${post.id})" class="flex items-center gap-1.5 bg-amber-50 dark:bg-slate-800 hover:bg-amber-100 text-amber-800 dark:text-amber-300 px-3 py-1.5 rounded-lg border border-amber-200 dark:border-slate-700 transition">
+                            💬 Komentar
+                        </button>
+                    </div>
+                    <button onclick="sharePost('${post.judul || 'Informasi Al-Asyraf XVII'}')" class="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 transition uppercase">
+                        🔗 Bagikan
+                    </button>
+                </div>
+
+                <div id="komentar-section-${post.id}" class="mt-4 pt-4 border-t border-dashed border-amber-200 dark:border-slate-700 hidden">
+                    <div class="space-y-3 mb-3" id="list-komentar-${post.id}">
+                        <p class="text-xs text-slate-500 italic">Memuat komentar...</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" id="input-nama-${post.id}" placeholder="NAMA ANDA..." class="px-3 py-1.5 border border-amber-300 dark:border-slate-600 rounded-lg text-xs w-1/3 bg-white/90 dark:bg-slate-800 dark:text-white uppercase font-semibold">
+                        <input type="text" id="input-pesan-${post.id}" placeholder="Tulis komentar..." class="px-3 py-1.5 border border-amber-300 dark:border-slate-600 rounded-lg text-xs flex-grow bg-white/95 dark:bg-slate-800 dark:text-white normal-case font-medium" onkeypress="if(event.key === 'Enter') kirimKomentar(${post.id})">
+                        <button onclick="kirimKomentar(${post.id})" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-1.5 rounded-lg text-xs font-bold uppercase shadow-sm">Kirim</button>
+                    </div>
+                </div>`;
+                
+                kartu.innerHTML = htmlIsi;
+                kontainer.appendChild(kartu);
+                cekStatusLikeLokal(post.id);
+            });
+        }
+
+        function cekStatusLikeLokal(postId) {
+            let userLiked = localStorage.getItem(`user_liked_${postId}`) === 'true';
+            const btn = document.getElementById(`btn-like-${postId}`);
+            if (btn && userLiked) {
+                btn.classList.add('bg-rose-100', 'dark:bg-rose-950', 'border-rose-300', 'text-rose-700', 'dark:text-rose-300');
+            }
+        }
+
+        async function handleLike(postId) {
+            let countSpan = document.getElementById(`count-like-${postId}`);
+            let currentLikes = parseInt(countSpan.innerText) || 0;
+            const btn = document.getElementById(`btn-like-${postId}`);
+            let userLiked = localStorage.getItem(`user_liked_${postId}`) === 'true';
+
+            if (!userLiked) {
+                currentLikes += 1;
+                localStorage.setItem(`user_liked_${postId}`, 'true');
+                btn.classList.add('bg-rose-100', 'dark:bg-rose-950', 'border-rose-300', 'text-rose-700', 'dark:text-rose-300');
+            } else {
+                currentLikes = Math.max(0, currentLikes - 1);
+                localStorage.setItem(`user_liked_${postId}`, 'false');
+                btn.classList.remove('bg-rose-100', 'dark:bg-rose-950', 'border-rose-300', 'text-rose-700', 'dark:text-rose-300');
+            }
+            countSpan.innerText = currentLikes;
+            globalLikes[postId] = currentLikes;
+
+            try {
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: "like", postId: postId, totalLikes: currentLikes })
+                });
+            } catch (e) {
+                console.error("Gagal kirim like:", e);
+            }
+        }
+
+        function cariBeranda() {
+            const keyword = document.getElementById('search-beranda').value.trim().toLowerCase();
+            if (keyword === "") {
+                tampilkanBeranda(semuaDataBeranda);
+                return;
+            }
+            const hasilFilter = semuaDataBeranda.filter(p => 
+                p.judul.toLowerCase().includes(keyword) || p.keterangan.toLowerCase().includes(keyword)
+            );
+            tampilkanBeranda(hasilFilter);
+        }
+
+        function toggleKomentar(postId) {
+            const section = document.getElementById(`komentar-section-${postId}`);
+            if(section) {
+                section.classList.toggle('hidden');
+                muatKomentarOnline(postId);
+            }
+        }
+
+        async function muatKomentarOnline(postId) {
+            const listContainer = document.getElementById(`list-komentar-${postId}`);
+            if(!listContainer) return;
+
+            try {
+                const res = await fetch(`${scriptURL}?action=getKomentar&postId=${postId}`);
+                const komentarList = await res.json();
+
+                listContainer.innerHTML = "";
+                if(komentarList.length === 0) {
+                    listContainer.innerHTML = `<p class="text-xs text-slate-500 dark:text-slate-400 italic">Belum ada komentar.</p>`;
+                    return;
+                }
+
+                komentarList.forEach(k => {
+                    let div = document.createElement('div');
+                    div.className = "bg-amber-50/70 dark:bg-slate-800 p-2.5 rounded-lg border border-amber-200/60 dark:border-slate-700 text-xs";
+                    div.innerHTML = `<div class="flex justify-between font-bold text-amber-900 dark:text-amber-400 mb-0.5"><span class="uppercase">${k.nama}</span><span class="text-[10px] text-slate-600 dark:text-slate-400">${k.waktu}</span></div><p class="text-slate-700 dark:text-slate-300 normal-case font-medium">${k.pesan}</p>`;
+                    listContainer.appendChild(div);
+                });
+            } catch (e) {
+                listContainer.innerHTML = `<p class="text-xs text-red-500 italic">Gagal memuat komentar.</p>`;
+            }
+        }
+
+        async function kirimKomentar(postId) {
+            const inputNama = document.getElementById(`input-nama-${postId}`);
+            const inputPesan = document.getElementById(`input-pesan-${postId}`);
+            const nama = inputNama.value.trim();
+            const pesan = inputPesan.value.trim();
+
+            if(!nama || !pesan) {
+                alert("Harap isi nama dan komentar Anda!");
+                return;
+            }
+
+            const waktuNow = new Date().toLocaleTimeString('id-ID', {hour: '2-digit', minute:'2-digit'});
+            const listContainer = document.getElementById(`list-komentar-${postId}`);
+            if(listContainer.querySelector('.italic')) listContainer.innerHTML = '';
+            
+            let div = document.createElement('div');
+            div.className = "bg-amber-50/70 dark:bg-slate-800 p-2.5 rounded-lg border border-amber-200/60 dark:border-slate-700 text-xs";
+            div.innerHTML = `<div class="flex justify-between font-bold text-amber-900 dark:text-amber-400 mb-0.5"><span class="uppercase">${nama}</span><span class="text-[10px] text-slate-600 dark:text-slate-400">${waktuNow}</span></div><p class="text-slate-700 dark:text-slate-300 normal-case font-medium">${pesan}</p>`;
+            listContainer.appendChild(div);
+
+            inputPesan.value = "";
+
+            try {
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: "komentar", postId: postId, nama: nama, pesan: pesan, waktu: waktuNow })
+                });
+            } catch (e) {
+                console.error("Gagal kirim komentar:", e);
+            }
+        }
+
+        function sharePost(judul) {
+            if (navigator.share) {
+                navigator.share({ title: judul, text: 'Baca info terbaru dari Portal Angkatan Al-Asyraf XVII:', url: window.location.href }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Link berhasil disalin ke clipboard!");
+            }
+        }
+
+        // SCRIPT BACK TO TOP
+        const btnBackToTop = document.getElementById('btn-backtotop');
+        if (btnBackToTop) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    btnBackToTop.classList.remove('translate-y-20', 'opacity-0');
+                    btnBackToTop.classList.add('translate-y-0', 'opacity-100');
+                } else {
+                    btnBackToTop.classList.add('translate-y-20', 'opacity-0');
+                    btnBackToTop.classList.remove('translate-y-0', 'opacity-100');
+                }
+            });
+        }
+
+        function kembaliKeAtas() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        muatPengumuman();
+    </script>
+
+    <!-- SCRIPT GALERI (SISTEM ALBUM BERSIH & MODAL DETAIL) -->
+    <script>
+        const urlCSVGaleri = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8wpJnmpxyn-eNoxvzH_76pEfQCK08B2g3cxI66tlwfxlRxRAMem2XfwCES7mMYCVzwYZgvk7pHRNF/pub?gid=1915587298&single=true&output=csv";
+        let semuaDataGaleri = [];
+
+        async function muatGaleri() {
+            try {
+                const response = await fetch(urlCSVGaleri);
+                const dataText = await response.text();
+                const baris = dataText.split("\n");
+                const kontainerGaleri = document.getElementById('page-galeri');
+                if (!kontainerGaleri) return;
+
+                semuaDataGaleri = [];
+                for (let i = 1; i < baris.length; i++) {
+                    const row = baris[i].trim();
+                    if (row) {
+                        const kolom = parseCSVLine(row);
+                        const timestamp = kolom[0] || "";
+                        const judul = kolom[1] || "Dokumentasi Kegiatan";
+                        let rawFotoCell = kolom[2] || "";
+                        const keterangan = kolom[3] || "";
+
+                        let daftarLink = rawFotoCell.split(/[,\s]+/).map(l => l.trim()).filter(l => l.length > 0);
+                        let cleanLinks = daftarLink.map(link => getCleanImageUrl(link)).filter(url => url !== "");
+
+                        if (cleanLinks.length > 0) {
+                            semuaDataGaleri.push({
+                                id: i,
+                                timestamp,
+                                judul,
+                                fotoList: cleanLinks,
+                                rawList: daftarLink,
+                                keterangan
+                            });
+                        }
+                    }
+                }
+
+                tampilkanHalamanGaleri();
+            } catch (error) {
+                console.error("Gagal memuat galeri:", error);
+            }
+        }
+
+        function tampilkanHalamanGaleri() {
+            const kontainerGaleri = document.getElementById('page-galeri');
+            let htmlContent = `
+                <div class="card-transparan rounded-xl shadow-lg border border-amber-200/80 p-4 sm:p-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-amber-900 dark:text-amber-400 text-center uppercase tracking-wide">Galeri Kegiatan Angkatan</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            `;
+
+            semuaDataGaleri.forEach((item, index) => {
+                let thumbnail = item.fotoList[0];
+
+                htmlContent += `
+                    <div class="bg-white/95 dark:bg-slate-800 rounded-lg shadow-sm overflow-hidden border border-amber-200 dark:border-slate-700 hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="relative overflow-hidden cursor-pointer" onclick="bukaAlbumModal(${index})">
+                                <img src="${thumbnail}" alt="${item.judul}" class="w-full h-48 object-cover object-center hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia'">
+                            </div>
+                            <div class="p-4">
+                                <span class="text-xs text-amber-700 dark:text-amber-400 font-semibold uppercase">${item.timestamp}</span>
+                                <h3 class="text-base font-bold text-slate-800 dark:text-slate-100 mt-1 uppercase">${item.judul}</h3>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed normal-case font-medium line-clamp-2">${item.keterangan}</p>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <button onclick="bukaAlbumModal(${index})" class="block w-full bg-amber-600 hover:bg-amber-700 text-white text-center text-xs font-bold py-2 rounded-md transition duration-200 uppercase tracking-wider cursor-pointer">
+                                Buka & Download
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            htmlContent += `</div></div>`;
+            kontainerGaleri.innerHTML = htmlContent;
+        }
+
+        function bukaAlbumModal(dataIndex) {
+            const item = semuaDataGaleri[dataIndex];
+            if (!item) return;
+
+            document.getElementById('album-title').innerText = item.judul;
+            const listContainer = document.getElementById('album-content-list');
+            listContainer.innerHTML = "";
+
+            item.fotoList.forEach((fotoUrl, idx) => {
+                let rawLink = item.rawList[idx] || fotoUrl;
+                let div = document.createElement('div');
+                div.className = "flex flex-col sm:flex-row items-center gap-4 bg-amber-50/60 dark:bg-slate-800 p-3 rounded-xl border border-amber-200/70 dark:border-slate-700";
+                div.innerHTML = `
+                    <img src="${fotoUrl}" alt="Foto ${idx+1}" class="w-full sm:w-32 h-32 object-cover rounded-lg cursor-pointer border border-amber-300 shadow-sm" onclick="bukaLightbox('${fotoUrl}')">
+                    <div class="flex-grow text-center sm:text-left w-full">
+                        <h4 class="font-bold text-xs text-slate-800 dark:text-slate-100 uppercase mb-1">Foto Dokumentasi #${idx + 1}</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 normal-case mb-3">${item.judul} - ${item.timestamp}</p>
+                        <a href="${rawLink}" target="_blank" class="inline-block bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition uppercase tracking-wider shadow-sm">
+                            Buka & Download via Drive
+                        </a>
+                    </div>
+                `;
+                listContainer.appendChild(div);
+            });
+
+            document.getElementById('album-modal').classList.remove('hidden');
+        }
+
+        function tutupAlbumModal() {
+            document.getElementById('album-modal').classList.add('hidden');
+        }
+
+        muatGaleri();
+    </script>
+</body>
+</html>
